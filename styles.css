@@ -1,8 +1,30 @@
+@font-face { 
+  font-family: Din; 
+  src: url('DINPro.OTF'); 
+}
+
+@font-face { 
+  font-family: Din-light; 
+  src: url('DINPro-Light.OTF'); 
+}
+
+h1 {
+  font-family: Din;
+  font-size: 1em;
+}
+
+h3 {
+  font-family: Din-light;
+  font-size: 80%;
+}
+
 .cardBorder {
   border-style: solid;
   border-width: 1px;
-  height: 240px;
+  height: 252px;
   width: 144px;
+/*  Need to toggle this display using jquery .show() 
+  display: none;*/
 }
 
 .container {
@@ -11,23 +33,50 @@
   margin-top: 9px;
   margin-right: auto;
   margin-left: auto;
-  border-style: solid;
-  border-width: 1px;
+/*  border-style: solid;
+  border-width: 1px;*/
 }
 
 .image {
-    height: 124px;
-    width: 124px;
-    margin-left: -1px;
-    margin-top: -1px;
-    border-style: solid;
-    border-width: 1px;
+  height: 124px;
+  width: 124px;
+  margin-left: -1px;
+  margin-top: -1px;
 }
 
 .name {
-    height: 40px;
-    width: 124px;
-    border-style: solid;
-    border-width: 0px, 0px, 1px, 0px;
+  height: 20px;
+  width: 124px;
+  border-bottom: 1px solid #D3D3D3;
+  text-align: center;
+}
+
+.question {
+  height: 30px;
+  width: 124px;
+  text-align: center;
 
 }
+
+img { 
+  max-width: 100%; 
+  height: auto; 
+}
+
+#generateButton {
+  box-sizing: border-box;
+  color: #00a2df;
+  cursor: pointer;
+  display: block;
+  font-family: Din;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+  height: 19px;
+  line-height:19px;
+  text-align: center;
+  text-indent: 0px;
+}
+
+
+

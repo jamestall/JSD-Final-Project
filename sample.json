@@ -1,0 +1,13 @@
+{
+  "totalResults": 2,
+  "Resources": [
+    {
+      "url": "http://example.com/jexample/photos",
+      "preferedName": "John Example"
+    },
+    {
+      "url": "http://example.com/pexample/photos",
+      "preferedName": "Paul O'Henry"
+    }
+  ]
+}
