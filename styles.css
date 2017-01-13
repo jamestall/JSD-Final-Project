@@ -9,28 +9,28 @@
 }
 
 h1 {
-  font-family: Din;
-  font-size: 1em;
+  font-family: Din-light;
+  font-size: 26px;
 }
 
 h3 {
-  font-family: Din-light;
+  font-family: Din;
   font-size: 80%;
 }
 
 .cardBorder {
   border-style: solid;
   border-width: 1px;
-  height: 252px;
-  width: 144px;
+  height: 355;
+  width: 202;
 /*  Need to toggle this display using jquery .show() 
   display: none;*/
 }
 
 .container {
-  height: 220px;
-  width: 124px;
-  margin-top: 9px;
+  height: 335px;
+  width: 172px;
+  margin-top: 14px;
   margin-right: auto;
   margin-left: auto;
 /*  border-style: solid;
@@ -38,24 +38,32 @@ h3 {
 }
 
 .image {
-  height: 124px;
-  width: 124px;
+  height: 172px;
+  width: 172px;
   margin-left: -1px;
   margin-top: -1px;
 }
 
 .name {
   height: 20px;
-  width: 124px;
-  border-bottom: 1px solid #D3D3D3;
+  width: 172px;
+  margin-top: 20px;
   text-align: center;
 }
 
 .question {
-  height: 30px;
-  width: 124px;
+  height: 50px;
+  width: 172px;
+  border-top: 1px solid #D3D3D3;
   text-align: center;
 
+}
+
+.answer {
+  height: 60px;
+  width: 172px;
+  border-style: solid;
+  border-width: 1px;
 }
 
 img { 

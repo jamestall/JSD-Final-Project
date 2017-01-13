@@ -45,16 +45,35 @@
 
 
 
-//*Create new Firebase app
-//*Initiate Firebase connection
+  // Initialize Firebase
+var config = {
+apiKey: "AIzaSyCAY5i_sqhDDW4Kuqv5YqFzeQJ4ucoFQK4",
+authDomain: "workerphotos.firebaseapp.com",
+databaseURL: "https://workerphotos.firebaseio.com",
+storageBucket: "workerphotos.appspot.com",
+messagingSenderId: "906126585423"
+};
+firebase.initializeApp(config);
 
-// Listen for event, perform API call on click
-$("#generateButton").on('click', function(event) {
-    //*configure Get call, figure out how to reference other JS file in mean-time
-    $.get() 
+// connect your Firebase application using your reference URL
+var cardAppReference = firebase.database();
+
+$(document).ready(function() {
+    // Listen for event, perform API call on click
+    $("#generateButton").on('click', function(event) {
+        $.get( "https://anypoint.mulesoft.com/apiplatform/proxy/https://mocksvc.mulesoft.com/mocks/a7f646cf-2da6-4263-8bd4-5e063563c66e/photos?client_id=123&client_secret=123", function( data ) {
+            $( ".result" ).html( data );
+            alert( "Load was performed." );
+            console.log(data);
+    //*write API response to firebase
+            // create a section for photos in db
+            var cardReference = cardAppReference.ref('photos')
+        });
+    });
 });
 
-//*write API response to firebase
+
+
 
 //*query number of people in response object
 
