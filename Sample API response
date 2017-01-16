@@ -1,0 +1,13 @@
+{
+  "totalResults": 2,
+  "Resources": [
+    {
+      "url": "https://s3-us-west-2.amazonaws.com/worker-photos/ross_super_awesome_headshot.png",
+      "preferedName": "Ross Mason"
+    },
+    {
+      "url": "https://s3-us-west-2.amazonaws.com/worker-photos/uri_photo_cropped.jpg",
+      "preferedName": "Uri Sarid"
+    }
+  ]
+}

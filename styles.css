@@ -8,14 +8,23 @@
   src: url('DINPro-Light.OTF'); 
 }
 
-h1 {
+body {
+  background-color: #F9FAFB;
+  -webkit-transition-property: background; 
+  -webkit-transition-duration: 1s; 
+  -webkit-transition-timing-function: ease-in;
+  /*color: #087299;*/
   font-family: Din-light;
-  font-size: 26px;
+  margin: 0, auto; 
 }
 
-h3 {
-  font-family: Din;
-  font-size: 80%;
+body.cardsShown {
+  background-color: #262728;
+  color: #00A2DF;
+}
+
+.mainTitle {
+  font-size: 60px;
 }
 
 .cardBorder {
@@ -23,6 +32,7 @@ h3 {
   border-width: 1px;
   height: 355;
   width: 202;
+  display: inline-block;
 /*  Need to toggle this display using jquery .show() 
   display: none;*/
 }
@@ -45,10 +55,11 @@ h3 {
 }
 
 .name {
-  height: 20px;
+  height: 30px;
   width: 172px;
-  margin-top: 20px;
   text-align: center;
+  font-family: Din-light;
+  font-size: 26px;
 }
 
 .question {
@@ -56,34 +67,43 @@ h3 {
   width: 172px;
   border-top: 1px solid #D3D3D3;
   text-align: center;
+  font-family: Din;
+  font-size: 80%;
 
 }
 
 .answer {
-  height: 60px;
+  height: 70px;
   width: 172px;
   border-style: solid;
   border-width: 1px;
 }
 
-img { 
+img.portrait { 
   max-width: 100%; 
   height: auto; 
+}
+
+img.landscape {
+  max-height: 100%
+  width: auto;
 }
 
 #generateButton {
   box-sizing: border-box;
   color: #00a2df;
   cursor: pointer;
-  display: block;
+  /*display: block;*/
   font-family: Din;
   font-size: 14px;
   font-style: normal;
   font-weight: normal;
-  height: 19px;
+  height: 40px;
   line-height:19px;
   text-align: center;
   text-indent: 0px;
+  /*display: inline-block;*/
+  margin: auto;
 }
 
 
