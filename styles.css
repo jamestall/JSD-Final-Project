@@ -79,7 +79,10 @@ body.cardsShown {
   border-width: 1px;
 }
 
-img.portrait { 
+img.cover {
+  object-fit: cover;
+}
+/*img.portrait { 
   max-width: 100%; 
   height: auto; 
 }
@@ -87,7 +90,7 @@ img.portrait {
 img.landscape {
   max-height: 100%
   width: auto;
-}
+}*/
 
 #generateButton {
   box-sizing: border-box;

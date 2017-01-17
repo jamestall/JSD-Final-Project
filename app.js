@@ -47,13 +47,20 @@ function writeUserData(name, imageUrl) {
 $(document).ready(function() {
     // Listen for event, perform API call on click
     $("#generateButton").on('click', function(event) {
-        $.get( "https://anypoint.mulesoft.com/apiplatform/proxy/https://mocksvc.mulesoft.com/mocks/a7f646cf-2da6-4263-8bd4-5e063563c66e/photos?client_id=123&client_secret=123", function( data ) {
-            $( ".result" ).html( data );
+        // $.get( "https://anypoint.mulesoft.com/apiplatform/proxy/https://mocksvc.mulesoft.com/mocks/a7f646cf-2da6-4263-8bd4-5e063563c66e/photos?client_id=123&client_secret=123", function( data ) {
+        // $.get( "http://172.16.13.139:8081/api/photos", function( data ) {
+        $.get( "https://mule-worker-photos-api.cloudhub.io/api/photos?client_id=d4cd80e6f02d4931bd3eca6b20860195&client_secret=69d78707b025480eA38254D20A8E837B?client_id=d4cd80e6f02d4931bd3eca6b20860195&client_secret=69d78707b025480eA38254D20A8E837B", function( data ) {
+            var badData = data;
+            var betterData = JSON.stringify(badData).replace(/#/g, "%23");
+            var correctedData = JSON.parse(betterData);
+            //Should use a library, and dangerous to perform it all in one single pass, should iterate through each URL individually - Steven
+
+            $( ".result" ).html( correctedData );
 
             // create a section for photos in db
             var cardReference = cardAppReference.ref('photos')
             // write response to photos section in db
-            cardReference.set(data);
+            cardReference.set(correctedData);
             // $(".showMe").append(data);
             $("body").removeClass('cardsShown');
             $("h1").removeClass('mainTitle');
@@ -85,7 +92,7 @@ var photoClass = {
                             <img src="${obj.url}"/>
                           </div>
                           <div class="name">
-                            <h1>${obj.preferedName}</h1> 
+                            <h1>${obj.preferredName}</h1> 
                           </div>
                           <div class="question">
                             <h3>What are your top three favorite books of all time?</h3>
@@ -94,7 +101,7 @@ var photoClass = {
                           </div>
                         </div>
                       </div>`;
-                document.body.innerHTML = markup;
+                    $("#insertCards").append(markup);
 
 
             };                
@@ -109,10 +116,10 @@ var photoClass = {
                         `<div class="cardBorder">
                             <div class="container">
                               <div class="image">
-                                <img class="portrait" src="${obj.url}"/>
+                                <img src="${obj.url}"/>
                               </div>
                               <div class="name">
-                                ${obj.preferedName}
+                                ${obj.preferredName}
                               </div>
                               <div class="question">
                                 What are your top three favorite books of all time?
@@ -122,6 +129,7 @@ var photoClass = {
                             </div>
                           </div>`;
                     $("#insertCards").append(markup);
+                    console.log(i)
                 }
                 
             }
