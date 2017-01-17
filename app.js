@@ -49,7 +49,7 @@ $(document).ready(function() {
     $("#generateButton").on('click', function(event) {
         // $.get( "https://anypoint.mulesoft.com/apiplatform/proxy/https://mocksvc.mulesoft.com/mocks/a7f646cf-2da6-4263-8bd4-5e063563c66e/photos?client_id=123&client_secret=123", function( data ) {
         // $.get( "http://172.16.13.139:8081/api/photos", function( data ) {
-        $.get( "https://mule-worker-photos-api.cloudhub.io/api/photos?client_id=d4cd80e6f02d4931bd3eca6b20860195&client_secret=69d78707b025480eA38254D20A8E837B?client_id=d4cd80e6f02d4931bd3eca6b20860195&client_secret=69d78707b025480eA38254D20A8E837B", function( data ) {
+        $.get( "https://mule-worker-photos-api.cloudhub.io/api/photos?client_id=d4cd80e6f02d4931bd3eca6b20860195&client_secret=69d78707b025480eA38254D20A8E837B", function( data ) {
             var badData = data;
             var betterData = JSON.stringify(badData).replace(/#/g, "%23");
             var correctedData = JSON.parse(betterData);
@@ -84,6 +84,7 @@ var photoClass = {
             for(var i = 0; i < returnObject.totalResults; i++) {
                 
                 var obj = returnObject.Resources[i];
+                var colorClass = randomElement(color);
 
                 markup =
                     `<div class="cardBorder">
@@ -94,17 +95,19 @@ var photoClass = {
                           <div class="name">
                             <h1>${obj.preferredName}</h1> 
                           </div>
-                          <div class="question">
-                            <h3>What are your top three favorite books of all time?</h3>
+                          <div class="border ${colorClass}">
                           </div>
-                          <div class="answer">
+                          <div class="question">
+                            <h3 class="somethingMoreDescriptive">${randomElement(questions)}</h3>
+                          </div>
+                          <div class="answer ${colorClass}">
                           </div>
                         </div>
                       </div>`;
+
                     $("#insertCards").append(markup);
 
-
-            };                
+                };                
             } else {
                 console.log("less than 40");
                 console.log("printing +" + returnObject.totalResults)
@@ -124,7 +127,7 @@ var photoClass = {
                               <div class="question">
                                 What are your top three favorite books of all time?
                               </div>
-                              <div class="answer">
+                              <div class="answer ${randomElement(color)}">
                               </div>
                             </div>
                           </div>`;
@@ -137,7 +140,59 @@ var photoClass = {
     }
 }
 
-// Create function for portrait vs landscape resizing (max height )
+var randomElement = function(array) {
+  var randomnumber = Math.floor(Math.random()*array.length);
+  return array[randomnumber];
+};
+
+var color = [
+    'lightBlue',
+    'red',
+    'green',
+    'yellow',
+    'viridian',
+    'indigo',
+    'violet',
+    'orange',
+    'navyBlue',
+    'magenta'
+];
+
+var questions = [
+    "If you could live anywhere, where would it be?",
+    "What is your proudest accomplishment?",
+    "What was the last movie you went to? What did you think?",
+    "Who is your favorite author?",
+    "What is the best gift you have been given?",
+    "What would you do if you won the lottery?",
+    "What's the most daring thing you have ever done?",
+    "What's your favorite type of foreign food?",
+    "What's your favorite family recipe?",
+    "What's your favorite family tradition?",
+    "What's the most unusual thing you have ever eaten?",
+    "Who is the most intelligent person you know?",
+    "What is your favorite flavor of ice cream?",
+    "What is your strongest talent?",
+    "What is your favorite season and why?",
+    "What was your favorite toy as a child?",
+    "Where is the fartherest you have traveled?",
+    "What is your favorite breakfast?",
+    "What is the longest car trip you've taken?",
+    "What is your favorite drink?",
+    "Do you believe in karma?",
+    "What is your favorite app?",
+    "Whats next on your bucket list?",
+    "What is your best childhood memory?",
+    "What would you most like to learn and why?",
+    "What music has most influenced you?",
+    "When do you feel the most confident and why?",
+    "What do you feel passionate about?",
+    "What is one of your most memorable dreams?",
+    "What word describes you best?",
+    "Where do you want to retire?",
+    "Who do you admire?",
+    "What is the kindest thing anyone has done for you?"
+];
 
 //*query number of people in response object
 
