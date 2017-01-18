@@ -279,7 +279,7 @@ h3 {
   margin: auto;
   white-space: nowrap;
   display:block; /* change this from inline-block */
-  width:20%; /* setting the width */
+  width: 200px; /* setting the width */
   margin:20px auto;
 }
 
