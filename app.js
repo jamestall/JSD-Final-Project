@@ -45,11 +45,15 @@ function writeUserData(name, imageUrl) {
 }
 
 $(document).ready(function() {
+
     // Listen for event, perform API call on click
     $("#generateButton").on('click', function(event) {
+        $("#loader-wrapper").show();
+        $("button").html('Thinking...');
         // $.get( "https://anypoint.mulesoft.com/apiplatform/proxy/https://mocksvc.mulesoft.com/mocks/a7f646cf-2da6-4263-8bd4-5e063563c66e/photos?client_id=123&client_secret=123", function( data ) {
         // $.get( "http://172.16.13.139:8081/api/photos", function( data ) {
         $.get( "https://mule-worker-photos-api.cloudhub.io/api/photos?client_id=d4cd80e6f02d4931bd3eca6b20860195&client_secret=69d78707b025480eA38254D20A8E837B", function( data ) {
+
             var badData = data;
             var betterData = JSON.stringify(badData).replace(/#/g, "%23");
             var correctedData = JSON.parse(betterData);
@@ -64,16 +68,20 @@ $(document).ready(function() {
             // $(".showMe").append(data);
             $("body").removeClass('cardsShown');
             $("h1").removeClass('mainTitle');
-            $("button").html('Refresh');
+            $("button").html('Refresh Cards');
+            $("#loader-wrapper").hide();
         });
+        
     });
     //Get content for cards, add cards to DOM
     photoClass.getPhotos();
+    
 });
 
 var photoClass = {
     getPhotos() {
         //retrieve photos 
+
         cardAppReference.ref('photos').on('value', function (results) {
             returnObject = results.val();
             console.log(returnObject.totalResults);
@@ -93,7 +101,7 @@ var photoClass = {
                             <img src="${obj.url}"/>
                           </div>
                           <div class="name">
-                            <h1>${obj.preferredName}</h1> 
+                            <h1 id="${nameParam(obj.preferredName)}">${obj.preferredName}</h1> 
                           </div>
                           <div class="border ${colorClass}">
                           </div>
@@ -121,7 +129,7 @@ var photoClass = {
                               <div class="image">
                                 <img src="${obj.url}"/>
                               </div>
-                              <div class="name">
+                              <div class="name" id="${nameParam(obj.preferredName)}">
                                 ${obj.preferredName}
                               </div>
                               <div class="question">
@@ -139,6 +147,19 @@ var photoClass = {
         })
     }
 }
+
+var nameParam = function(name) {
+    nameLength = name.length;
+    if (nameLength < 12) {
+        return "shortName";
+    } else if (nameLength >= 12 && nameLength < 15) {
+        return "mediumName";
+    } else if (nameLength >= 15 && nameLength < 19) {
+        return "longName";
+    } else {
+        return "reallyLongName";
+    };
+};
 
 var randomElement = function(array) {
   var randomnumber = Math.floor(Math.random()*array.length);

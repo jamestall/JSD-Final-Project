@@ -16,11 +16,13 @@ body {
   /*color: #087299;*/
   font-family: Din-light;
   margin: 0, auto; 
+  line-height: 0px;
 }
 
 body.cardsShown {
   background-color: #262728;
-  color: #00A2DF;
+  color: #00A2DF
+  /*line-height: 0px;*/
 }
 
 .mainTitle {
@@ -31,16 +33,19 @@ body.cardsShown {
 
 #loader-wrapper {
     position: fixed;
+        display: none;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5);
+
 }
-/*
+
 #loader {
-    display: block;
-    position: relative;
+    /*display: none;*/
+    position: fixed;
     left: 50%;
     top: 50%;
     width: 150px;
@@ -50,6 +55,8 @@ body.cardsShown {
     border: 3px solid transparent;
     border-top-color: #3498db;
     border-radius: 50%;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
 }
 
 #loader:before {
@@ -60,8 +67,10 @@ body.cardsShown {
     right: 5px;
     bottom: 5px;
     border: 3px solid transparent;
-    border-top-color: #e74c3c
+    border-top-color: #e74c3c;
     border-radius: 50%;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
 }
 #loader:after {
     content: "";
@@ -73,7 +82,35 @@ body.cardsShown {
     border: 3px solid transparent;
     border-top-color: #f9c922;
     border-radius: 50%;
-}*/
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+}
+@keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+}
+
 /*.loader {
     border: 16px solid #F9FAFB;
     border-top: 16px solid #3498db; 
@@ -186,6 +223,22 @@ body.cardsShown {
   color: #F20072;
 }
 
+#shortName {
+  font-size: 26px;
+}
+
+#mediumName {
+  font-size: 22px;
+}
+
+#longName {
+  font-size: 18px;
+}
+
+#reallyLongName {
+  font-size: 14px;
+}
+
 
 img {
   object-fit: cover;
@@ -199,8 +252,9 @@ img {
 h1 {
   margin-top: 0px;
   margin-bottom: 15px;
-  font-size: 26px;
+  font-size: 40px;
   font-family: Din-light;
+  text-align: center;
 }
 
 h3 {
@@ -222,7 +276,6 @@ h3 {
   line-height:19px;
   text-align: center;
   text-indent: 0px;
-  /*display: inline-block;*/
   margin: auto;
   white-space: nowrap;
   display:block; /* change this from inline-block */
