@@ -125,12 +125,13 @@ body.cardsShown {
     100% { transform: rotate(360deg); }
 }
 .cardBorder {
+  vertical-align: top;
   border-style: solid;
   border-width: 1px;
   height: 355;
   width: 202;
   display: inline-block;
-  margin: 10px;
+  /*margin: 10px;*/
 /*  Need to toggle this display using jquery .show() 
   display: none;*/
 }
@@ -159,68 +160,70 @@ body.cardsShown {
   font-family: Din-light;
   font-size: auto;
   padding-top: 10px;
+  font: 16px/1 sans-serif;
 
 }
 
 .question {
-  height: 30px;
+  height: 35px;
   width: 172px;
   /*border-top: 1px solid #D3D3D3;*/
   text-align: center;
   font-family: Din;
-  font-size: 75%;
-  padding-top: 10px;
+  font-size: 14px;
+  padding-top: 6px;
+  line-height: 12px;
 }
 
 .border {
-  border-top: 1px solid;
+  border-top: 2px solid;
 }
 
 .answer {
   height: 70px;
   width: 172px;
   border-style: solid;
-  border-width: 1px;
+  border-width: 2px;
 }
 
 .lightBlue {
-  color: #00A2DF;
+  color: #6DCFF6;
 }
 
 .red {
-  color: #D1344E;
+  color: #CE181E;
 }
 
 .green{
-  color: #17BC65;
+  color: #33A544;
 }
 
 .yellow {
-  color: #F2BE24;
+  color: #DDCD00;
 }
 
-.viridian {
-  color: #00B49D;
+.gray {
+  color: #88817F;
 }
 
-.indigo {
-  color: #5E66F9;
+.pink {
+  color: #F49AC1;
 }
 
-.violet {
-  color: #9A63F9;
+.brown {
+  color: #6B3A10;
 }
 
 .orange {
-  color: #FF8500;
+  color: #F58220;
 }
 
-.navyBlue {
-  color: #0024E4;
+.blue {
+  color: #00529C;
 }
 
-.magenta {
-  color: #F20072;
+.purple {
+  color: #92278F;
 }
 
 #shortName {
@@ -258,7 +261,9 @@ h1 {
 }
 
 h3 {
-  font-size: 70%;
+  font-size: 12px;
+  margin: 1;
+  padding: 1;
 }
 
 #generateButton {
@@ -273,14 +278,13 @@ h3 {
   font-style: normal;
   font-weight: normal;
   height: 40px;
-  line-height:19px;
   text-align: center;
   text-indent: 0px;
   margin: auto;
   white-space: nowrap;
   display:block; /* change this from inline-block */
   width: 200px; /* setting the width */
-  margin:20px auto;
+  margin:40px auto;
 }
 
 

@@ -114,6 +114,7 @@ var photoClass = {
                       </div>`;
 
                     $("#insertCards").append(markup);
+                    colorAssignments[colorClass].push(", " + obj.preferredName + ", " + colorClass);
 
                 };                
             } else {
@@ -148,35 +149,17 @@ var photoClass = {
     }
 }
 
-var nameParam = function(name) {
-    nameLength = name.length;
-    if (nameLength < 12) {
-        return "shortName";
-    } else if (nameLength >= 12 && nameLength < 15) {
-        return "mediumName";
-    } else if (nameLength >= 15 && nameLength < 19) {
-        return "longName";
-    } else {
-        return "reallyLongName";
-    };
-};
-
-var randomElement = function(array) {
-  var randomnumber = Math.floor(Math.random()*array.length);
-  return array[randomnumber];
-};
-
 var color = [
-    'lightBlue',
-    'red',
-    'green',
     'yellow',
-    'viridian',
-    'indigo',
-    'violet',
+    'lightBlue',
+    'green',
     'orange',
-    'navyBlue',
-    'magenta'
+    'gray',
+    'pink',
+    'red',
+    'blue',
+    'purple',
+    'brown'
 ];
 
 var questions = [
@@ -202,7 +185,7 @@ var questions = [
     "What is your favorite drink?",
     "Do you believe in karma?",
     "What is your favorite app?",
-    "Whats next on your bucket list?",
+    "What is next on your bucket list?",
     "What is your best childhood memory?",
     "What would you most like to learn and why?",
     "What music has most influenced you?",
@@ -214,6 +197,41 @@ var questions = [
     "Who do you admire?",
     "What is the kindest thing anyone has done for you?"
 ];
+
+var nameParam = function(name) {
+    nameLength = name.length;
+    if (nameLength < 12) {
+        return "shortName";
+    } else if (nameLength >= 12 && nameLength < 15) {
+        return "mediumName";
+    } else if (nameLength >= 15 && nameLength < 19) {
+        return "longName";
+    } else {
+        return "reallyLongName";
+    };
+};
+
+var randomElement = function(array) {
+  var randomnumber = Math.floor(Math.random()*array.length);
+  return array[randomnumber];
+};
+
+var colorAssignments = {};
+
+var colorAssignmentArrayCreator = function(array) {
+    for(var i = 0; i < array.length; i++) {
+      colorAssignments[array[i]] = [];
+      colorAssignments[array[i]].name = array[i];
+    }
+}
+
+colorAssignmentArrayCreator(color);
+
+for (var x in colorAssignments) {
+  console.log(colorAssignments[x].name)
+}
+
+
 
 //*query number of people in response object
 
